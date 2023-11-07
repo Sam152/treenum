@@ -12,36 +12,36 @@ trait TestCases {
     /**
      * @return class-string<TreeEnum>
      */
-    protected abstract static function testWith(): string;
+    protected abstract static function with(): string;
 
     public function test_root_cases(): void {
         $this->assertSame([
-            static::testWith()::Dog,
-            static::testWith()::Bird,
-            static::testWith()::Cat,
-        ], static::testWith()::rootCases());
+            static::with()::Dog,
+            static::with()::Bird,
+            static::with()::Cat,
+        ], static::with()::rootCases());
     }
 
     public function test_leaf_cases(): void {
         $this->assertSame([
-            static::testWith()::Labrador,
-            static::testWith()::Golden,
-            static::testWith()::Terrier,
-            static::testWith()::Chicken,
-            static::testWith()::Cat,
-        ], static::testWith()::leafCases());
+            static::with()::Labrador,
+            static::with()::Golden,
+            static::with()::Terrier,
+            static::with()::Chicken,
+            static::with()::Cat,
+        ], static::with()::leafCases());
     }
 
     public static function getParentTestCases(): array {
         return [
-            [static::testWith()::Retriever, static::testWith()::Dog],
-            [static::testWith()::Labrador, static::testWith()::Retriever],
-            [static::testWith()::Golden, static::testWith()::Retriever],
-            [static::testWith()::Terrier, static::testWith()::Dog],
-            [static::testWith()::Chicken, static::testWith()::Bird],
-            [static::testWith()::Dog, null],
-            [static::testWith()::Bird, null],
-            [static::testWith()::Cat, null],
+            [static::with()::Retriever, static::with()::Dog],
+            [static::with()::Labrador, static::with()::Retriever],
+            [static::with()::Golden, static::with()::Retriever],
+            [static::with()::Terrier, static::with()::Dog],
+            [static::with()::Chicken, static::with()::Bird],
+            [static::with()::Dog, null],
+            [static::with()::Bird, null],
+            [static::with()::Cat, null],
         ];
     }
 
@@ -52,14 +52,14 @@ trait TestCases {
 
     public static function getChildrenTestCases(): array {
         return [
-            [static::testWith()::Dog, [static::testWith()::Retriever, static::testWith()::Terrier]],
-            [static::testWith()::Retriever, [static::testWith()::Labrador, static::testWith()::Golden]],
-            [static::testWith()::Labrador, []],
-            [static::testWith()::Golden, []],
-            [static::testWith()::Terrier, []],
-            [static::testWith()::Bird, [static::testWith()::Chicken]],
-            [static::testWith()::Chicken, []],
-            [static::testWith()::Cat, []],
+            [static::with()::Dog, [static::with()::Retriever, static::with()::Terrier]],
+            [static::with()::Retriever, [static::with()::Labrador, static::with()::Golden]],
+            [static::with()::Labrador, []],
+            [static::with()::Golden, []],
+            [static::with()::Terrier, []],
+            [static::with()::Bird, [static::with()::Chicken]],
+            [static::with()::Chicken, []],
+            [static::with()::Cat, []],
         ];
     }
 
@@ -70,14 +70,14 @@ trait TestCases {
 
     public static function getDepthTestCases(): array {
         return [
-            [static::testWith()::Dog, 1],
-            [static::testWith()::Retriever, 2],
-            [static::testWith()::Labrador, 3],
-            [static::testWith()::Golden, 3],
-            [static::testWith()::Terrier, 2],
-            [static::testWith()::Bird, 1],
-            [static::testWith()::Chicken, 2],
-            [static::testWith()::Cat, 1],
+            [static::with()::Dog, 1],
+            [static::with()::Retriever, 2],
+            [static::with()::Labrador, 3],
+            [static::with()::Golden, 3],
+            [static::with()::Terrier, 2],
+            [static::with()::Bird, 1],
+            [static::with()::Chicken, 2],
+            [static::with()::Cat, 1],
         ];
     }
 
@@ -88,14 +88,14 @@ trait TestCases {
 
     public static function getAncestorsTestCases(): array {
         return [
-            [static::testWith()::Dog, []],
-            [static::testWith()::Retriever, [static::testWith()::Dog]],
-            [static::testWith()::Labrador, [static::testWith()::Retriever, static::testWith()::Dog]],
-            [static::testWith()::Golden, [static::testWith()::Retriever, static::testWith()::Dog]],
-            [static::testWith()::Terrier, [static::testWith()::Dog]],
-            [static::testWith()::Bird, []],
-            [static::testWith()::Chicken, [static::testWith()::Bird]],
-            [static::testWith()::Cat, []],
+            [static::with()::Dog, []],
+            [static::with()::Retriever, [static::with()::Dog]],
+            [static::with()::Labrador, [static::with()::Retriever, static::with()::Dog]],
+            [static::with()::Golden, [static::with()::Retriever, static::with()::Dog]],
+            [static::with()::Terrier, [static::with()::Dog]],
+            [static::with()::Bird, []],
+            [static::with()::Chicken, [static::with()::Bird]],
+            [static::with()::Cat, []],
         ];
     }
 
@@ -106,14 +106,14 @@ trait TestCases {
 
     public static function getDescendantsTestCases(): array {
         return [
-            [static::testWith()::Dog, [static::testWith()::Retriever, static::testWith()::Terrier, static::testWith()::Labrador, static::testWith()::Golden]],
-            [static::testWith()::Retriever, [static::testWith()::Labrador, static::testWith()::Golden]],
-            [static::testWith()::Labrador, []],
-            [static::testWith()::Golden, []],
-            [static::testWith()::Terrier, []],
-            [static::testWith()::Bird, [static::testWith()::Chicken]],
-            [static::testWith()::Chicken, []],
-            [static::testWith()::Cat, []],
+            [static::with()::Dog, [static::with()::Retriever, static::with()::Terrier, static::with()::Labrador, static::with()::Golden]],
+            [static::with()::Retriever, [static::with()::Labrador, static::with()::Golden]],
+            [static::with()::Labrador, []],
+            [static::with()::Golden, []],
+            [static::with()::Terrier, []],
+            [static::with()::Bird, [static::with()::Chicken]],
+            [static::with()::Chicken, []],
+            [static::with()::Cat, []],
         ];
     }
 

@@ -10,7 +10,7 @@ use Tests\Treenum\Fixtures\PetWithParent;
 class GetParentImplementationTest extends TestCase {
     use TestCases;
 
-    protected static function testWith(): string {
+    protected static function with(): string {
         return PetWithParent::class;
     }
 }
